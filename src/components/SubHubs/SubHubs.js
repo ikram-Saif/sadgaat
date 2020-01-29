@@ -13,6 +13,7 @@ class  subHubs  extends React.Component {
 
     constructor(props) {
         super(props);
+        i18n.language = 'en'
         this.state = {
             isLoading: true,
             subHubs: [],

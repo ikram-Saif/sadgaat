@@ -17,7 +17,9 @@ class  HubSubHubs  extends React.Component {
 
     constructor(props) {
         super(props);
+        i18n.language = 'en'
         this.state = {
+            
             isLoading: true,
             hub_sub_hubs: [],
             has_value:''

@@ -39,7 +39,7 @@ i18n
       escapeValue: false
     },
     react: {
-      wait: true,
+      //wait: true,
       useSuspense: false 
     },
   });

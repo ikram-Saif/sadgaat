@@ -11,6 +11,7 @@ import {withTranslation} from 'react-i18next'
 class  News extends React.Component {
 
     constructor(props) {
+        i18n.language = 'en'
         super(props);
         this.state = {
             isLoading: true,
@@ -37,43 +38,11 @@ class  News extends React.Component {
             });
     }
 
-    /*componentDidUpdate() {
-        axios.get("http://192.168.1.112:8081/api/v1/news/",{ headers: {'accept-language': `${i18n.language}`}})
-            .then(response => {
-                console.log(response.data);
-                this.setState({
-                    isLoading: false,
-                    news: response.data,
-                });
-
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }*/
-
-
-
-
     render(){
-
-
-        const { error, isLoaded, news } = this.state;
+        const {isLoaded, news } = this.state;
         const {t} =this.props
-        return(
-
-
-            this.state.isLoading ? <div className="loader"><img  src={spinner} /></div>:
-                <div>
-                    <div className="site-section">
-                        <div className="container">
-                            <h2 className="text-primary mb-5 font-weight-bold"> {t('Latest News')}</h2>
-                            <div className="row d-flex justify-content-around">
-
-                                {news.map(ne => (
-
-
+        const newsList = news.length > 0 ?
+                                news.map(ne => (
 
                                     <div className="col-lg-3 col-md-6 mb-4">
                                         <div className="media-29101">
@@ -81,10 +50,20 @@ class  News extends React.Component {
                                             <h3><a href="#">{ne.name}</a></h3>
                                         </div>
                                     </div>
+                                            )):
+                                                <div><h1>there is no news</h1></div>
+                                        
 
+        return(
+            this.state.isLoading ? <div className="loader"><img  src={spinner} /></div>:
+                <div>
+                    <div className="site-section">
+                        <div className="container">
+                            <h2 className="text-primary mb-5 font-weight-bold"> {t('Latest News')}</h2>
+                            <div className="row d-flex justify-content-around">
+                                        {newsList}
 
-                                ))}
-
+                               
                             </div>
                         </div>
                     </div>
@@ -100,7 +79,7 @@ class  News extends React.Component {
                     </div>
                 </div>
 
-        );
+        )
     }
 }
 

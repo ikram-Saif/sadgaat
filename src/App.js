@@ -49,6 +49,7 @@ function App() {
     const float_menu = i18n.dir()==="rtl"? "left" :"right"
     const fontStyle = i18n.dir()==="rtl"? "arbic-font":"en-font"
     const menuAlign = i18n.dir()==="rtl"? "text-left":"text-right"
+   
 
     
    

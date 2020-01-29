@@ -13,6 +13,7 @@ class  AllHubs extends React.Component {
 
 
     constructor(props) {
+        i18n.language = 'en'
         super(props);
         this.state = {
             isLoading: true,
@@ -34,12 +35,9 @@ class  AllHubs extends React.Component {
                     hubs: response.data
             });
 
-
             })
             .catch(error => {
-
-
-                console.log(error);
+             
             });
 
     }

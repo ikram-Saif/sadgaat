@@ -15,6 +15,7 @@ class  SubHubsProjects  extends React.Component {
 
     constructor(props) {
         super(props);
+        i18n.language = 'en'
         this.state = {
             isLoading:true,
             aProjects: [],
